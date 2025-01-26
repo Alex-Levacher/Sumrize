@@ -1,4 +1,3 @@
-import { Welcome } from "../welcome/welcome";
 import type { Route } from "./+types/home";
 
 export function meta({}: Route.MetaArgs) {
@@ -8,6 +7,14 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-export default function Home() {
-  return <Welcome />;
+export async function loader() {
+  return { message: "Hello !!" };
+}
+
+export default function Home({ loaderData }: Route.ComponentProps) {
+  return (
+    <div>
+      <h1>{loaderData.message}</h1>
+    </div>
+  );
 }
