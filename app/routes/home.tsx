@@ -22,7 +22,7 @@ export async function loader() {
     .from(Video);
   console.log(videos);
 
-  return { message: "Hello !!" };
+  return { message: "Hello !" };
 }
 
 export default function Home({ loaderData }: Route.ComponentProps) {
