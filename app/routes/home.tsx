@@ -1,12 +1,11 @@
-import { drizzle } from "drizzle-orm/node-postgres";
 import type { Route } from "./+types/home";
 import { Video } from "~/.server/db/schema";
 import { db } from "~/.server/db/database-config";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "New React Router Ap" },
+    { name: "description", content: "Welcome to React Route!" },
   ];
 }
 
@@ -20,9 +19,10 @@ export async function loader() {
       title: Video.title,
     })
     .from(Video);
+
   console.log(videos);
 
-  return { message: "Hello !" };
+  return { message: "Hello Server!" };
 }
 
 export default function Home({ loaderData }: Route.ComponentProps) {
