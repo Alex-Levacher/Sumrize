@@ -1,0 +1,14 @@
+name: Sumrize
+
+services:
+  postgres:
+    image: postgres:16.4
+    restart: on-failure
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=sumrize
+    ports:
+      - "5431:5432" # Map the default postgres port to 5431 on my machine
+    volumes:
+      - ./.postgres-data:/var/lib/postgresql/data
