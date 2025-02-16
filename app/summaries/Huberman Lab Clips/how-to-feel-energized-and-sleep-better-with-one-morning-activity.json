@@ -1,0 +1,67 @@
+{
+  "author": "Huberman Lab Clips",
+  "iframeUrl": "https://www.youtube.com/embed/WDv4AWk0J3U",
+  "img": "https://i.ytimg.com/vi/WDv4AWk0J3U/maxresdefault.jpg",
+  "slug": "how-to-feel-energized-and-sleep-better",
+  "title": "Comment avoir plus d'énergie et mieux dormir",
+  "description": "Apprenez pourquoi et comment le soleil du matin est vital pour votre santé et votre sommeil, à travers des suggestions basées sur des recherches scientifiques.",
+  "sections": [{
+		"timeStart": "0:04",
+		"timeEnd": "0:32",
+		"title": "L'importance de l'exposition à la lumière solaire le matin",
+		"summary": "Commencer la journée par une exposition à la lumière du soleil peut avoir une influence significative sur notre niveau d'alerte et notre sommeil. Le soleil matinal, même en cas de faible luminosité, aide à déclencher une augmentation du cortisol, ce qui nous permet de rester concentrés durant la journée et d'optimiser notre sommeil la nuit. Il est donc essentiel de sortir de chez soi tôt le matin pour profiter de cette lumière naturelle.",
+		"importantQuote": "Il est essentiel de profiter de la lumière solaire dès le lever pour rester alerte tout au long de la journée et optimiser notre sommeil la nuit.",
+		"notes": [
+		  "🌞 Faites le plein de lumière naturelle dès le matin.",
+		  "🚶‍♂️ Sortez de chez vous peu après le réveil pour bénéficier du soleil."
+		],
+		"actions": [
+		  "🏁 Dès votre réveil, exposez-vous à la lumière du jour, même si le ciel est nuageux."
+		]
+	  },
+	  {
+		"timeStart": "0:35",
+		"timeEnd": "2:04",
+		"title": "Comment profiter au mieux de la lumière matinale",
+		"summary": "Même par temps nuageux, il est bénéfique de recevoir cette énergie lumineuse, car la lumière solaire diffusée est suffisante pour impacter notre biologie. Il n'est pas nécessaire de regarder directement le soleil, surtout s'il est déjà haut dans le ciel, car cela peut être douloureux. La clé est de s'orienter vers le soleil sans le fixer pour protéger ses yeux. Il est également préférable de ne pas porter de lunettes de soleil pendant ce rituel matinal, afin de permettre aux rayons solaires d'atteindre les cellules ganglionnaires intrinsèquement photosensibles de nos rétines.",
+		"importantQuote": "L'exposition à la lumière naturelle le matin doit se faire sans lunettes de soleil pour stimuler les cellules photosensibles de la rétine.",
+		"notes": [
+		  "🌞 Privilégiez une exposition sans lunettes de soleil.",
+		  "👓 Vous pouvez garder vos lunettes correctrices ou lentilles de contact et bénéficier des mêmes avantages",
+		  "🕒 Exposez-vous à la lumière solaire idéalement dans l'heure qui suit votre réveil."
+		],
+		"actions": [
+		  "🎯 Orientation vers le soleil sans le fixer pour une durée de 5 à 10 minutes, en fonction de la couverture nuageuse."
+		]
+	  },
+	  {
+		"timeStart": "2:09",
+		"timeEnd": "3:11",
+		"title": "Trois points essentiels sur l'exposition matinale au soleil",
+		"summary": "Le rituel de profiter de la lumière solaire dès le matin est étayé par des études scientifiques démontrant ses effets positifs sur l'éveil diurne et la qualité du sommeil nocturne. Si vous vous levez avant le lever du soleil, l'utilisation de lumières artificielles peut aider à rester éveillé, mais elles ne remplacent pas l'effet de la lumière naturelle une fois que le soleil est levé. Les lumières artificielles sont en effet moins efficaces pour déclencher les mécanismes de réveil le matin mais peuvent fortement perturber le sommeil si utilisées la nuit.",
+		"importantQuote": "La lumière naturelle du matin est primordiale pour un éveil actif et un sommeil réparateur, tandis que les lumières artificielles peuvent perturber le sommeil nocturne.",
+		"notes": [
+		  "💡 Utilisez des lumières artificielles seulement avant le lever du soleil.",
+		  "🌓 L'asymétrie biologique nécessite beaucoup de lumière le matin et peu la nuit."
+		],
+		"actions": [
+		  "🪟 Profitez de la lumière solaire tôt le matin, sans intermédiaires comme les fenêtres ou pare-brise."
+		]
+	  },
+	  {
+		"timeStart": "3:13",
+		"timeEnd": "6:22",
+		"title": "Conseils pratiques pour une exposition optimale à la lumière matinale",
+		"summary": "Il est essentiel de s'exposer suffisamment longtemps à la lumière naturelle, surtout les jours nuageux. En fonction de la densité des nuages, l'exposition devrait durer entre 5 et 30 minutes. Il est également important de ne pas tenter d'obtenir cette exposition à travers un vitrage, car il filtre les longueurs d'onde nécessaires. Il faut s'efforcer d'obtenir cette lumière directement de l'extérieur. En cas de mauvais temps ou d'obstacles à sortir, s'approcher le plus possible d'une fenêtre serait la dernière option à considérer.",
+		"importantQuote": "L'exposition à la lumière du soleil en extérieur est cruciale, surtout par temps nuageux, pour réguler nos rythmes circadiens.",
+		"notes": [
+		  "☁️ Augmentez la durée d'exposition par temps couvert.",
+		  "🕖 Variez la durée entre 5 à 30 minutes selon la couverture nuageuse.",
+		  "🚫 Évitez de tenter une exposition à travers des vitres."
+		],
+		"actions": [
+		  "🌅 Sortez pour une exposition directe au soleil, surtout lors de jours couverts ou venteux."
+		]
+	  }
+	]
+}

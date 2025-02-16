@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "react-router build",
+    "studio": "drizzle-kit studio",
     "dev": "react-router dev",
     "start": "react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc"
@@ -15,11 +16,12 @@
     "drizzle-orm": "^0.39.2",
     "isbot": "^5.1.22",
     "pg": "^8.13.1",
+    "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-router": "^7.1.5",
-    "react": "^19.0.0"
+    "react-router": "^7.1.5"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.10",
     "@biomejs/biome": "1.9.4",
     "@react-router/dev": "^7.1.5",
     "@tailwindcss/vite": "^4.0.4",

@@ -8,7 +8,9 @@ import {
 } from "react-router";
 
 import type { Route } from "./+types/root";
-import "./app.css";
+import "./css/style.css";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -32,8 +34,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body>
-        {children}
+      <body className="font-inter antialiased bg-grey-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200 tracking-tight">
+        {/* Page wrapper */}
+        <div className="relative flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">
+          <Header />
+          {children}
+          <Footer />
+        </div>
         <ScrollRestoration />
         <Scripts />
       </body>
