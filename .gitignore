@@ -1,7 +1,17 @@
+# System files
 .DS_Store
-/node_modules/
 
-# React Router
-/.react-router/
-/build/
-.postgres-data/
+# Node modules
+/node_modules
+
+# React Router cache
+/.react-router
+
+# Build output
+/build
+
+# PostgreSQL data
+.postgres-data
+
+# Environment variables
+.env

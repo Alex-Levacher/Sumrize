@@ -3,6 +3,16 @@
   "editor.defaultFormatter": "biomejs.biome",
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
-  "cSpell.words": ["Sumrize"],
-  "cSpell.language": "fr, en"
+  "cSpell.words": ["Sumrize", "tailwindcss"],
+  "cSpell.language": "fr, en",
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "editor.fontSize": 14,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.biome": "explicit",
+    "source.sortImports": "explicit",
+    "source.organizeImports.biome": "explicit",
+    "source.addMissingImports.ts": "explicit"
+  }
 }
