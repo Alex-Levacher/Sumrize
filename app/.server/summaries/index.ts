@@ -1,4 +1,3 @@
-import Oussama from './Oussama Ammar';
 import Huberman from './Huberman Lab Clips';
 import Yomi from './Yomi Denzel';
 
@@ -24,4 +23,4 @@ export type Summary = {
   sections: Section[];
 };
 
-export const allSummaries = [...Yomi, ...Oussama, ...Huberman].reverse();
+export const allSummaries = [...Yomi, ...Huberman].reverse();

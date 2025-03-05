@@ -1,12 +1,14 @@
 import { useEffect, useRef } from "react";
-import { useFetcher, useNavigation } from "react-router";
+import { useFetcher } from "react-router";
 import { toast } from "sonner";
+import { allSummaries } from "~/.server/summaries";
 import {
   sendTransactionalEmail,
   transactionalIds,
 } from "~/.server/utils/mailing.server";
 import { Lines } from "~/components/Lines";
 import { Loader } from "~/components/Loader";
+import PostItem from "~/components/post-item";
 import type { Route } from "./+types/home";
 import AvailableSoon from "./AvailableSoon";
 
@@ -48,7 +50,7 @@ export default function Home() {
                 <div className="text-center">
                   <AvailableSoon />
                   <h1 className="pb-4 font-bold font-inter-tight text-5xl text-gray-800 md:text-6xl dark:bg-linear-to-b dark:from-amber-200 dark:to-gray-200 dark:bg-clip-text dark:text-transparent">
-                    Le savoir de Youtube, en quelques minutes
+                    Le savoir de Youtube, en quelques minutes.
                   </h1>
                   <p className="text-gray-700 text-lg dark:text-gray-400">
                     Exploitez des centaines d'heures de contenu, et apprenez
@@ -63,6 +65,45 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <div className="mx-auto max-w-[900px] gap-8">
+          <h2 className="mb-3 font-[650] text-xl">Lire les résumés</h2>
+
+          {/* Filters */}
+          <ul className="flex flex-wrap border-slate-100 border-b text-sm dark:border-slate-800">
+            <li className="-mb-px px-3">
+              <a
+                className="block border-yellow-500 border-b-2 py-3 font-medium text-slate-800 dark:text-slate-100"
+                href="#0"
+              >
+                Toutes
+              </a>
+            </li>
+            <li className="-mb-px px-3">
+              <span className="block py-3 text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300">
+                <span className="red-ruban-fixed -m-1 p-1">
+                  + de catégories bientôt
+                </span>
+              </span>
+            </li>
+          </ul>
+
+          {/* Articles list */}
+          <div>
+            {allSummaries.map((summary, index) => {
+              return (
+                <PostItem
+                  key={`${summary.slug}-${index}`}
+                  img={summary.img}
+                  title={summary.title}
+                  author={summary.author}
+                  summary={summary.description}
+                  slug={summary.slug}
+                />
+              );
+            })}
+          </div>
+        </div>
       </main>
     </>
   );
