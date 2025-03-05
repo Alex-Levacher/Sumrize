@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { useFetcher } from "react-router";
+import { useFetcher, useLoaderData } from "react-router";
 import { toast } from "sonner";
 import { allSummaries } from "~/.server/summaries";
 import {
@@ -38,7 +38,15 @@ export async function action({ request }: Route.ActionArgs) {
   };
 }
 
+export const loader = async () => {
+  return {
+    summaries: allSummaries,
+  };
+};
+
 export default function Home() {
+  const { summaries } = useLoaderData<typeof loader>();
+
   return (
     <>
       <Lines />
@@ -66,8 +74,10 @@ export default function Home() {
           </div>
         </section>
 
-        <div className="mx-auto max-w-[900px] gap-8">
-          <h2 className="mb-3 font-[650] text-xl">Lire les résumés</h2>
+        <div className="mx-auto mb-20 max-w-[900px] gap-8">
+          <h2 className="mb-3 font-[650] text-xl">
+            Découvrir les premiers résumés
+          </h2>
 
           {/* Filters */}
           <ul className="flex flex-wrap border-slate-100 border-b text-sm dark:border-slate-800">
@@ -90,7 +100,7 @@ export default function Home() {
 
           {/* Articles list */}
           <div>
-            {allSummaries.map((summary, index) => {
+            {summaries.map((summary, index) => {
               return (
                 <PostItem
                   key={`${summary.slug}-${index}`}
