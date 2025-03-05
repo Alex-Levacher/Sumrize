@@ -3,7 +3,7 @@
   "editor.defaultFormatter": "biomejs.biome",
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
-  "cSpell.words": ["Sumrize", "tailwindcss"],
+  "cSpell.words": ["Sumrize", "tailwindcss", "waitlist"],
   "cSpell.language": "fr, en",
   "files.associations": {
     "*.css": "tailwindcss"

@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { Logo } from "./Logo";
+import { Logo } from "../Logo";
 
 import "./header.css";
 
@@ -9,16 +9,8 @@ export default function Header() {
       <div className="px-4 sm:px-6">
         <div className="mx-auto max-w-3xl">
           <div className="relative flex h-12 items-center justify-between gap-x-2 rounded-lg bg-custom-gradient px-3 shadow-sm">
-            {/* Border with dots in corners */}
-            <div
-              className="dot-background -inset-1.5 -z-10 absolute rounded-xs"
-              aria-hidden="true"
-            />
-
-            <div className="flex-1">
-              <Logo />
-            </div>
-
+            <div className="dot-background -inset-1.5 -z-10 absolute rounded-xs" />
+            <Logo />
             <Navigation />
           </div>
         </div>

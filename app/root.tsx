@@ -9,7 +9,8 @@ import {
 import { Toaster } from "~/components/ui/sonner";
 import type { Route } from "./+types/root";
 import Footer from "./components/Footer";
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
+
 import "./css/style.css";
 
 export const links: Route.LinksFunction = () => [
@@ -35,11 +36,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body className="bg-grey-50 font-inter text-gray-800 tracking-tight antialiased dark:bg-gray-900 dark:text-gray-200">
-        {/* Page wrapper */}
-        <div className="relative flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
+        <div className="">
           <Header />
           {children}
-          <Footer />
+          {/* <Footer /> */}
         </div>
         <Toaster />
         <ScrollRestoration />

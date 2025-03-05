@@ -1,8 +1,12 @@
-import { LoopsClient } from "loops";
-import { useEffect, useState } from "react";
-import { Form, useFetcher } from "react-router";
+import { useEffect, useRef } from "react";
+import { useFetcher, useNavigation } from "react-router";
 import { toast } from "sonner";
+import {
+  sendTransactionalEmail,
+  transactionalIds,
+} from "~/.server/utils/mailing.server";
 import { Lines } from "~/components/Lines";
+import { Loader } from "~/components/Loader";
 import type { Route } from "./+types/home";
 import AvailableSoon from "./AvailableSoon";
 
@@ -17,15 +21,10 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export async function action({ request }: Route.ActionArgs) {
-  const loops = new LoopsClient(process.env.LOOPS_API_KEY as string);
-
   const formData = await request.formData();
   const email = formData.get("email") as string;
 
-  const resp = await loops.sendTransactionalEmail({
-    email,
-    transactionalId: "cm77s7uhm05eqtnp96da1sdvz",
-  });
+  const resp = await sendTransactionalEmail(email, transactionalIds.waitlist);
 
   if (resp.success) {
     return { message: "Vous êtes inscrit à la liste d'attente", success: true };
@@ -37,25 +36,13 @@ export async function action({ request }: Route.ActionArgs) {
   };
 }
 
-export default function Home({ loaderData, actionData }: Route.ComponentProps) {
-  const { message, success } = actionData || {};
-  const [email, setEmail] = useState("");
-
-  useEffect(() => {
-    if (success) {
-      toast.success(message, { position: "bottom-center" });
-      setEmail("");
-    } else if (message) {
-      toast.error(message, { position: "bottom-center" });
-    }
-  }, [success, message]);
-
+export default function Home() {
   return (
     <>
       <Lines />
       <main className="grow">
         <section>
-          <div className="pt-32 pb-12 md:pt-44 md:pb-20">
+          <div className="pt-32 pb-12 md:pt-20 md:pb-20">
             <div className="px-4 sm:px-6">
               <div className="mx-auto mb-12 max-w-3xl">
                 <div className="text-center">
@@ -81,19 +68,28 @@ export default function Home({ loaderData, actionData }: Route.ComponentProps) {
   );
 }
 
+type ActionData = {
+  message: string;
+  success: boolean;
+};
+
 const JoinWaitlist = () => {
-  const fetcher = useFetcher();
+  const fetcher = useFetcher<ActionData>();
+  const formRef = useRef<HTMLFormElement>(null);
+  const isSubmitting = fetcher.state === "submitting";
 
   useEffect(() => {
-    console.log(fetcher.formData);
-    if (fetcher.formData) {
-      fetcher.formData.set("email", "");
+    if (fetcher.data?.success) {
+      toast.success(fetcher.data.message, { position: "bottom-center" });
+      formRef.current?.reset();
+    } else if (fetcher.data?.message) {
+      toast.error(fetcher.data.message, { position: "bottom-center" });
     }
-  }, [fetcher.formData]);
+  }, [fetcher.data]);
 
   return (
     <div className="mx-auto w-full max-w-xs shrink-0">
-      <Form className="relative" method="post" action=".">
+      <fetcher.Form ref={formRef} className="relative" method="POST" action=".">
         <div
           className="-inset-3 -z-10 absolute rounded-lg bg-amber-500/15 before:absolute before:inset-y-0 before:left-0 before:w-[15px] before:bg-[length:15px_15px] before:bg-no-repeat after:absolute after:inset-y-0 after:right-0 after:w-[15px] after:bg-[length:15px_15px] after:bg-no-repeat dark:bg-linear-to-b dark:bg-transparent dark:from-gray-700/80 dark:to-gray-700/70 before:[background-image:radial-gradient(circle_at_center,--theme(--color-amber-500/.56)_1.5px,transparent_1.5px),radial-gradient(circle_at_center,--theme(--color-amber-500/.56)_1.5px,transparent_1.5px)] before:[background-position:top_center,bottom_center] after:[background-image:radial-gradient(circle_at_center,--theme(--color-amber-500/.56)_1.5px,transparent_1.5px),radial-gradient(circle_at_center,--theme(--color-amber-500/.56)_1.5px,transparent_1.5px)] after:[background-position:top_center,bottom_center] dark:after:[background-image:radial-gradient(circle_at_center,var(--color-gray-600)_1.5px,transparent_1.5px),radial-gradient(circle_at_center,var(--color-gray-600)_1.5px,transparent_1.5px)] dark:before:[background-image:radial-gradient(circle_at_center,var(--color-gray-600)_1.5px,transparent_1.5px),radial-gradient(circle_at_center,var(--color-gray-600)_1.5px,transparent_1.5px)]"
           aria-hidden="true"
@@ -121,13 +117,20 @@ const JoinWaitlist = () => {
           <div>
             <button
               type="submit"
-              className="btn w-full cursor-pointer bg-gray-900 text-gray-100 hover:bg-gray-800 dark:bg-gray-100 dark:text-gray-800 dark:hover:bg-white"
+              className="btn h-10 w-full cursor-pointer bg-gray-900 text-gray-100 hover:bg-gray-800 dark:bg-gray-100 dark:text-gray-800 dark:hover:bg-white"
+              disabled={isSubmitting}
             >
-              Rejoignez la liste d'attente
+              {isSubmitting ? (
+                <div className="flex items-center justify-center">
+                  <Loader />
+                </div>
+              ) : (
+                "Rejoignez la liste d'attente"
+              )}
             </button>
           </div>
         </div>
-      </Form>
+      </fetcher.Form>
     </div>
   );
 };
