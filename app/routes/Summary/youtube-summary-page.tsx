@@ -30,7 +30,9 @@ export default function YoutubeSummaryPage({ summary }: { summary: Summary }) {
             <span className="text-slate-400 dark:text-slate-600">·</span>{" "}
             {summary.author}
           </div>
-          <h1 className="mb-4 text-4xl">{summary.title}</h1>
+          <h1 className="mt-2 scroll-m-20 font-extrabold text-4xl tracking-tight lg:text-5xl">
+            {summary.title}
+          </h1>
         </div>
       </header>
 
