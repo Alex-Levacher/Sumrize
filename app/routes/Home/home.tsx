@@ -29,7 +29,11 @@ export async function action({ request }: Route.ActionArgs) {
   const resp = await sendTransactionalEmail(email, transactionalIds.waitlist);
 
   if (resp.success) {
-    return { message: "Vous êtes inscrit à la liste d'attente", success: true };
+    return {
+      message:
+        "Merci pour votre inscription ! Vous allez recevoir un email de confirmation.",
+      success: true,
+    };
   }
 
   return {
