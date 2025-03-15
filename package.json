@@ -17,11 +17,11 @@
     "isbot": "^5.1.23",
     "loops": "^4.1.0",
     "lucide-react": "^0.479.0",
-    "next-themes": "^0.4.6",
     "pg": "^8.14.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router": "^7.3.0",
+    "remix-themes": "^2.0.4",
     "sonner": "^2.0.1",
     "tailwind-merge": "^3.0.2",
     "tailwindcss-animate": "^1.0.7"

@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import { Logo } from "../Logo";
+import { ThemeToggle } from "../ThemeToggle";
 
 import "./header.css";
 
@@ -11,7 +12,10 @@ export default function Header() {
           <div className="relative flex h-12 items-center justify-between gap-x-2 rounded-lg bg-custom-gradient px-3 shadow-sm">
             <div className="dot-background -inset-1.5 -z-10 absolute rounded-xs" />
             <Logo />
-            <Navigation />
+            <div className="flex items-center gap-x-4">
+              <ThemeToggle />
+              <Navigation />
+            </div>
           </div>
         </div>
       </div>

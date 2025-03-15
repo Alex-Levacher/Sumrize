@@ -1,16 +1,20 @@
+import clsx from "clsx";
 import {
   Links,
+  type LoaderFunctionArgs,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
   isRouteErrorResponse,
+  useLoaderData,
 } from "react-router";
+import { ThemeProvider, useTheme } from "remix-themes";
 import { Toaster } from "~/components/ui/sonner";
 import type { Route } from "./+types/root";
-import Footer from "./components/Footer";
 import Header from "./components/Header/Header";
 
+import { themeSessionResolver } from "./.server/sessions.server";
 import "./css/style.css";
 
 export const links: Route.LinksFunction = () => [
@@ -26,9 +30,29 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
-export function Layout({ children }: { children: React.ReactNode }) {
+export async function loader({ request }: LoaderFunctionArgs) {
+  const { getTheme } = await themeSessionResolver(request);
+
+  return {
+    theme: getTheme(),
+  };
+}
+
+export default function AppWithProviders() {
+  const data = useLoaderData<typeof loader>();
+
   return (
-    <html lang="en">
+    <ThemeProvider specifiedTheme={data.theme} themeAction="/config/set-theme">
+      <App />
+    </ThemeProvider>
+  );
+}
+
+export function App() {
+  const [theme] = useTheme();
+
+  return (
+    <html lang="en" className={clsx(theme)}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -36,21 +60,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body className="bg-grey-50 font-inter text-gray-800 tracking-tight antialiased dark:bg-gray-900 dark:text-gray-200">
-        <div className="">
-          <Header />
-          {children}
-          {/* <Footer /> */}
-        </div>
+        <Header />
+        <Outlet />
         <Toaster />
         <ScrollRestoration />
         <Scripts />
       </body>
     </html>
   );
-}
-
-export default function App() {
-  return <Outlet />;
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
