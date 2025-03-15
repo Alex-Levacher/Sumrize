@@ -8,7 +8,7 @@ export default function AvailableSoon() {
           aria-hidden="true"
         />
         <span className="relative text-gray-800 dark:bg-linear-to-b dark:from-amber-500 dark:to-amber-50 dark:bg-clip-text dark:text-transparent">
-          Bientôt disponible
+          Sumrize・Bientôt disponible
         </span>
       </div>
     </div>
