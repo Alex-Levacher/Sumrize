@@ -56,7 +56,7 @@ export default function Home() {
       <Lines />
       <main className="grow">
         <section>
-          <div className="pt-32 pb-12 md:pt-20 md:pb-20">
+          <div className="pt-20 pb-12 md:pt-20 md:pb-20">
             <div className="px-4 sm:px-6">
               <div className="mx-auto mb-12 max-w-3xl">
                 <div className="text-center">
@@ -78,7 +78,7 @@ export default function Home() {
           </div>
         </section>
 
-        <div className="mx-auto mb-20 max-w-[900px] gap-8">
+        <div className="mx-auto mb-20 max-w-[900px] gap-8 px-8">
           <h2 className="mb-3 font-[650] text-xl">
             Découvrir les premiers résumés
           </h2>

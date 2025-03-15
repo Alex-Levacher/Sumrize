@@ -59,9 +59,11 @@ export function App() {
         <Meta />
         <Links />
       </head>
-      <body className="bg-grey-50 font-inter text-gray-800 tracking-tight antialiased dark:bg-gray-900 dark:text-gray-200">
-        <Header />
-        <Outlet />
+      <body className="bg-grey-100 font-inter text-gray-800 tracking-tight antialiased dark:bg-gray-900 dark:text-gray-200">
+        <div className="relative flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
+          <Header />
+          <Outlet />
+        </div>
         <Toaster />
         <ScrollRestoration />
         <Scripts />
