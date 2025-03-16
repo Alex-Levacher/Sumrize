@@ -1,3 +1,4 @@
+import { Quote } from "lucide-react";
 import { Link } from "react-router";
 import type { Summary } from "~/.server/summaries";
 
@@ -43,6 +44,58 @@ export default function YoutubeSummaryPage({ summary }: { summary: Summary }) {
             {summary.description}
           </p>
         </section>
+
+        {/* Sections */}
+        {summary.sections.map((section) => (
+          <section key={section.title} className="flex flex-col gap-8 py-8">
+            <div>
+              <h2 className="font-bold text-2xl">{section.title}</h2>
+              <p className="text-slate-500 dark:text-slate-400">
+                {section.summary}
+              </p>
+            </div>
+
+            {/* Important quote */}
+            <div>
+              <div className="flex items-center gap-6">
+                <Quote className="max-h-20 max-w-20 text-slate-500 dark:text-slate-400" />
+                <p className="mt-4 font-bold text-slate-500 text-xl italic dark:text-slate-400">
+                  {section.importantQuote}
+                </p>
+              </div>
+            </div>
+
+            {/* Notes */}
+            <div>
+              <h3 className="font-bold text-lg">Notes</h3>
+              <ul className="list-disc pl-5">
+                {section.notes.map((note) => (
+                  <li
+                    key={note}
+                    className="list-none pt-4 text-slate-500 dark:text-slate-400"
+                  >
+                    {note}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Actions */}
+            <div>
+              <h3 className="font-bold text-lg">Actions</h3>
+              <ul className="list-disc pl-5">
+                {section.actions.map((action) => (
+                  <li
+                    key={action}
+                    className="list-none pt-4 text-slate-500 dark:text-slate-400"
+                  >
+                    {action}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        ))}
       </article>
     </div>
   );
